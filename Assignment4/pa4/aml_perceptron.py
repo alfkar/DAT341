@@ -77,11 +77,12 @@ class Perceptron(LinearClassifier):
         """
         self.n_iter = n_iter
 
-    def fit(self, X, Y):
+    def fit(self, X, Y, lmbda=1):
         """
         Train a linear classifier using the perceptron learning algorithm.
         """
-
+        if lmbda == 0:
+            raise Exception("lmbda cannot be 0")
         # First determine which output class will be associated with positive
         # and negative scores, respectively.
         self.find_classes(Y)
@@ -97,7 +98,7 @@ class Perceptron(LinearClassifier):
         # Initialize the weight vector to all zeros.
         n_features = X.shape[1]
         self.w = np.zeros(n_features)
-
+    
         # Perceptron algorithm:
         for i in range(self.n_iter):
             for x, y in zip(X, Ye):
@@ -108,8 +109,54 @@ class Perceptron(LinearClassifier):
                 # If there was an error, update the weights.
                 if y*score <= 0:
                     self.w += y*x
+        
+class Pegasos(LinearClassifier):
+    """
+    A straightforward implementation of the Pegasos learning algorithm.
+    """
 
+    def __init__(self, n_iter=20):
+        """
+        The constructor can optionally take a parameter n_iter specifying how
+        many times we want to iterate through the training set.
+        """
+        self.n_iter = n_iter
 
+    def fit(self, X, Y, lmbda=1):
+        """
+        Train a linear classifier using the Pegasos learning algorithm.
+        """
+        if lmbda == 0:
+            raise Exception("lmbda cannot be 0")
+        # First determine which output class will be associated with positive
+        # and negative scores, respectively.
+        self.find_classes(Y)
+
+        # Convert all outputs to +1 (for the positive class) or -1 (negative).
+        Ye = self.encode_outputs(Y)
+
+        # If necessary, convert the sparse matrix returned by a vectorizer
+        # into a normal NumPy matrix.
+        if not isinstance(X, np.ndarray):
+            X = X.toarray()
+
+        # Initialize the weight vector to all zeros.
+        n_features = X.shape[1]
+        self.w = np.zeros(n_features)
+        # Pegasos algorithm:
+        for i in range(self.n_iter):
+            t = 0
+            for x, y in zip(X, Ye):
+                t += 1
+                n = 1/(lmbda*t)
+                # Compute the output score for this instance.
+                score = x.dot(self.w)
+
+                # If there was an error, update the weights.
+                if y*score < 1:
+                    self.w = (1-n*lmbda)*self.w + n*y*x
+                else:
+                    self.w = (1-n*lmbda)*self.w
 ##### The following part is for the optional task.
 
 ### Sparse and dense vectors don't collaborate very well in NumPy/SciPy.
