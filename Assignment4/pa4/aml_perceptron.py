@@ -10,6 +10,7 @@ with a lot of zeros, such as when we are using a "bag of words" representation
 of documents.
 """
 
+import random
 import numpy as np
 from sklearn.base import BaseEstimator
 
@@ -77,12 +78,10 @@ class Perceptron(LinearClassifier):
         """
         self.n_iter = n_iter
 
-    def fit(self, X, Y, lmbda=1):
+    def fit(self, X, Y):
         """
         Train a linear classifier using the perceptron learning algorithm.
         """
-        if lmbda == 0:
-            raise Exception("lmbda cannot be 0")
         # First determine which output class will be associated with positive
         # and negative scores, respectively.
         self.find_classes(Y)
@@ -122,12 +121,11 @@ class Pegasos(LinearClassifier):
         """
         self.n_iter = n_iter
 
-    def fit(self, X, Y, lmbda=1):
+    def fit(self, X, Y):
         """
         Train a linear classifier using the Pegasos learning algorithm.
         """
-        if lmbda == 0:
-            raise Exception("lmbda cannot be 0")
+        
         # First determine which output class will be associated with positive
         # and negative scores, respectively.
         self.find_classes(Y)
@@ -143,20 +141,84 @@ class Pegasos(LinearClassifier):
         # Initialize the weight vector to all zeros.
         n_features = X.shape[1]
         self.w = np.zeros(n_features)
-        # Pegasos algorithm:
-        for i in range(self.n_iter):
-            t = 0
-            for x, y in zip(X, Ye):
-                t += 1
-                n = 1/(lmbda*t)
-                # Compute the output score for this instance.
-                score = x.dot(self.w)
+        #Set lambda to 1/N where N is number of instances in the training set
+        n_instances = X.shape[0]
+        lmbda = 1/n_instances
 
-                # If there was an error, update the weights.
-                if y*score < 1:
-                    self.w = (1-n*lmbda)*self.w + n*y*x
-                else:
-                    self.w = (1-n*lmbda)*self.w
+        # Pegasos algorithm:
+        t = 0
+        for i in range(self.n_iter):
+
+            # Select a random training instance.
+            index = random.randint(0, len(X)-1)
+            x, y = X[index], Ye[index]
+            #Setting the step length
+            t += 1
+            n = 1/(lmbda*t)
+
+            # Compute the output score for this instance.
+            score = x.dot(self.w)
+
+            # Stochastic gradient descent with hinge loss
+            if y*score < 1:
+                self.w = (1-n*lmbda)*self.w + n*y*x
+            else:
+                self.w = (1-n*lmbda)*self.w
+
+
+class LogisticRegression(LinearClassifier):
+    """
+    A straightforward implementation of the LogisticRegression algorithm.
+    """
+
+    def __init__(self, n_iter=20):
+        """
+        The constructor can optionally take a parameter n_iter specifying how
+        many times we want to iterate through the training set.
+        """
+        self.n_iter = n_iter
+
+    def fit(self, X, Y):
+        """
+        Train a linear classifier using the LogisticRegression algorithm.
+        """
+        
+        # First determine which output class will be associated with positive
+        # and negative scores, respectively.
+        self.find_classes(Y)
+
+        # Convert all outputs to +1 (for the positive class) or -1 (negative).
+        Ye = self.encode_outputs(Y)
+
+        # If necessary, convert the sparse matrix returned by a vectorizer
+        # into a normal NumPy matrix.
+        if not isinstance(X, np.ndarray):
+            X = X.toarray()
+
+        # Initialize the weight vector to all zeros.
+        n_features = X.shape[1]
+        self.w = np.zeros(n_features)
+        #Set lambda to 1/N where N is number of instances in the training set
+        n_instances = X.shape[0]
+        lmbda = 1/n_instances
+
+        # Logistic Regression algorithm:
+        t = 0
+        for i in range(self.n_iter):
+
+            # Select a random training instance.
+            index = random.randint(0, len(X)-1)
+            x, y = X[index], Ye[index]
+            #Setting the step length
+            t += 1
+            n = 1/(lmbda*t)
+
+            # Compute the output score for this instance.
+            score = x.dot(self.w)
+
+            # Stochastic gradient descent with log loss
+            self.w = (1-n*lmbda)*self.w + n*x*y/(1+np.exp(y*score))
+
 ##### The following part is for the optional task.
 
 ### Sparse and dense vectors don't collaborate very well in NumPy/SciPy.
