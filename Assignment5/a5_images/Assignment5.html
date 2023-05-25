@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>283996</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<section id="programming-assignment-5-spotting-cars-using-convolutional-neural-networks" class="cell markdown">
+<h1>Programming assignment 5: spotting cars using convolutional neural networks</h1>
+<p>Participants: Arvid Nyberg &amp; Alfred Karlsson</p>
+</section>
+<div class="cell code" data-execution_count="71">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.image <span class="im">import</span> ImageDataGenerator</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Sequential</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Dense, Flatten, Conv2D, MaxPooling2D</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.optimizers <span class="im">import</span> SGD</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras <span class="im">import</span> applications</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.image <span class="im">import</span> load_img, img_to_array</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.applications.vgg16 <span class="im">import</span> decode_predictions, preprocess_input</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span></code></pre></div>
+</div>
+<section id="loading-images-from-a-directory" class="cell markdown">
+<h2>Loading images from a directory</h2>
+</section>
+<div class="cell code" data-execution_count="72">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ImageDataGenerator determines how images are converted to NumPy data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_gen <span class="op">=</span> ImageDataGenerator(rescale<span class="op">=</span><span class="fl">1.0</span><span class="op">/</span><span class="dv">255</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data_gen_aug <span class="op">=</span> ImageDataGenerator(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        rescale<span class="op">=</span><span class="fl">1.0</span><span class="op">/</span><span class="dv">255</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        horizontal_flip <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        vertical_flip <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>img_size <span class="op">=</span> <span class="dv">64</span> <span class="co"># Resize to 64x64 pixels</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>batch_size <span class="op">=</span> <span class="dv">32</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>train_generator <span class="op">=</span> data_gen_aug.flow_from_directory(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;./train&#39;</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        target_size<span class="op">=</span>(img_size, img_size), <span class="co"># Resize to 64x64 pixels</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span>batch_size,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        class_mode<span class="op">=</span><span class="st">&#39;binary&#39;</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        classes<span class="op">=</span>[<span class="st">&#39;other&#39;</span>, <span class="st">&#39;car&#39;</span>], <span class="co"># 0 = other 1 = car</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        seed<span class="op">=</span><span class="dv">12345</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        shuffle<span class="op">=</span><span class="va">True</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>Xbatch_aug, Ybatch_aug <span class="op">=</span> train_generator.<span class="bu">next</span>()</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>train_generator <span class="op">=</span> data_gen.flow_from_directory(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;./train&#39;</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        target_size<span class="op">=</span>(img_size, img_size),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span>batch_size,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        class_mode<span class="op">=</span><span class="st">&#39;binary&#39;</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        classes<span class="op">=</span>[<span class="st">&#39;other&#39;</span>, <span class="st">&#39;car&#39;</span>],</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        seed<span class="op">=</span><span class="dv">12345</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>Xbatch, Ybatch <span class="op">=</span> train_generator.<span class="bu">next</span>()</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>validation_generator <span class="op">=</span> data_gen.flow_from_directory(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;./validation&#39;</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        target_size<span class="op">=</span>(img_size, img_size),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        batch_size<span class="op">=</span>batch_size,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        class_mode<span class="op">=</span><span class="st">&#39;binary&#39;</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        classes<span class="op">=</span>[<span class="st">&#39;other&#39;</span>, <span class="st">&#39;car&#39;</span>],</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        seed<span class="op">=</span><span class="dv">12345</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>x_test, y_test <span class="op">=</span> validation_generator.<span class="bu">next</span>()</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Xbatch.shape)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Ybatch.shape)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Ybatch[<span class="dv">0</span>])</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>plt.imshow(Xbatch[<span class="dv">0</span>])</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Found 1600 images belonging to 2 classes.
+Found 1600 images belonging to 2 classes.
+Found 576 images belonging to 2 classes.
+(32, 64, 64, 3)
+(32,)
+1.0
+</code></pre>
+</div>
+<div class="output execute_result" data-execution_count="72">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f5ca40e4430&gt;</code></pre>
+</div>
+<div class="output display_data">
+<p><img src="77312d25c599e9c75e248d2b7da0707d26743ec1.png" /></p>
+</div>
+</div>
+<section id="part-1--2-training-a-convolutional-neural-network-including-data-augmentation" class="cell markdown">
+<h2>Part 1 &amp; 2: Training a convolutional neural network (including data augmentation)</h2>
+</section>
+<div class="cell code" data-execution_count="73">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Builds a CNN</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_convnet():</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> Sequential()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    model.add(Conv2D(<span class="dv">8</span>,(<span class="dv">3</span>,<span class="dv">3</span>), activation<span class="op">=</span><span class="st">&quot;relu&quot;</span>,input_shape<span class="op">=</span>(img_size, img_size, <span class="dv">3</span>)))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>)))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    model.add(Conv2D(<span class="dv">16</span>,(<span class="dv">3</span>,<span class="dv">3</span>), activation<span class="op">=</span><span class="st">&quot;relu&quot;</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>)))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    model.add(Conv2D(<span class="dv">32</span>,(<span class="dv">3</span>,<span class="dv">3</span>), activation<span class="op">=</span><span class="st">&quot;relu&quot;</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>)))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    model.add(Conv2D(<span class="dv">64</span>,(<span class="dv">3</span>,<span class="dv">3</span>), activation<span class="op">=</span><span class="st">&quot;relu&quot;</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    model.add(MaxPooling2D(pool_size<span class="op">=</span>(<span class="dv">2</span>,<span class="dv">2</span>)))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    model.add(Flatten())</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    model.add(Dense(<span class="dv">512</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    model.add(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;sigmoid&#39;</span>))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">&#39;binary_crossentropy&#39;</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>              optimizer<span class="op">=</span>(SGD(learning_rate<span class="op">=</span><span class="fl">0.01</span>,momentum<span class="op">=</span><span class="fl">0.1</span>, nesterov<span class="op">=</span><span class="va">True</span>)),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>              metrics<span class="op">=</span>[<span class="st">&#39;accuracy&#39;</span>])</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> model</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> make_convnet()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>model_aug <span class="op">=</span> make_convnet()</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># model.summary()</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(Xbatch, Ybatch,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>          batch_size<span class="op">=</span>batch_size,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>          epochs<span class="op">=</span>epochs,</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>          verbose<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>          validation_data<span class="op">=</span>(x_test, y_test))</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> model.evaluate(x_test, y_test, verbose<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Test loss:&#39;</span>, score[<span class="dv">0</span>])</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Test accuracy:&#39;</span>, score[<span class="dv">1</span>])</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>history_aug <span class="op">=</span> model_aug.fit(Xbatch_aug, Ybatch_aug,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>          batch_size<span class="op">=</span>batch_size,</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>          epochs<span class="op">=</span>epochs,</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>          verbose<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>          validation_data<span class="op">=</span>(x_test, y_test))</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>score_aug <span class="op">=</span> model_aug.evaluate(x_test, y_test, verbose<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Augmented Test loss:&#39;</span>, score_aug[<span class="dv">0</span>])</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Augmented Test accuracy:&#39;</span>, score_aug[<span class="dv">1</span>])</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Test loss: 0.6768192052841187
+Test accuracy: 0.59375
+Augmented Test loss: 0.6774004101753235
+Augmented Test accuracy: 0.59375
+</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p>Plotting augmented and normal data accuracy and loss for each epoch.</p>
+</div>
+<div class="cell code" data-execution_count="74">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">&#39;accuracy&#39;</span>])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.plot(history_aug.history[<span class="st">&#39;accuracy&#39;</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">&#39;val_accuracy&#39;</span>])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.plot(history_aug.history[<span class="st">&#39;val_accuracy&#39;</span>])</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;model accuracy&#39;</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;accuracy&#39;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;epoch&#39;</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">&#39;train&#39;</span>,<span class="st">&#39;train_aug&#39;</span>, <span class="st">&#39;val&#39;</span>,<span class="st">&#39;val_aug&#39;</span>], loc<span class="op">=</span><span class="st">&#39;upper left&#39;</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">&#39;loss&#39;</span>])</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.plot(history_aug.history[<span class="st">&#39;loss&#39;</span>])</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">&#39;val_loss&#39;</span>])</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.plot(history_aug.history[<span class="st">&#39;val_loss&#39;</span>])</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;model loss&#39;</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;loss&#39;</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;epoch&#39;</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">&#39;train&#39;</span>,<span class="st">&#39;train_aug&#39;</span>, <span class="st">&#39;val&#39;</span>,<span class="st">&#39;val_aug&#39;</span>], loc<span class="op">=</span><span class="st">&#39;upper left&#39;</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="output display_data">
+<p><img src="a9d7dd24ae3b851cb9b3067e2a494b440580533c.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="daf06ce9b8c8dea4809750946785c2422614c94a.png" /></p>
+</div>
+</div>
+<div class="cell markdown">
+<p>With the chosen CNN the accuracy score is the same but the loss is lower on the augmented data, not by much though.</p>
+</div>
+<div class="cell code" data-execution_count="75">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vggmodel <span class="op">=</span> applications.VGG16(weights<span class="op">=</span><span class="st">&#39;imagenet&#39;</span>, include_top<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> load_img(<span class="st">&#39;./train/car/0005.jpg&#39;</span>,target_size<span class="op">=</span>(<span class="dv">224</span>,<span class="dv">224</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>image_array <span class="op">=</span> img_to_array(image)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>image_preprocessed <span class="op">=</span> preprocess_input(image_array)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>image_final <span class="op">=</span> image_preprocessed.reshape(<span class="dv">1</span>,<span class="dv">224</span>,<span class="dv">224</span>,<span class="dv">3</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>prediction <span class="op">=</span> vggmodel.predict(image_final)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>decode_predictions(prediction)</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>1/1 [==============================] - 3s 3s/step
+</code></pre>
+</div>
+<div class="output execute_result" data-execution_count="75">
+<pre><code>[[(&#39;n03345487&#39;, &#39;fire_engine&#39;, 0.29069436),
+  (&#39;n04461696&#39;, &#39;tow_truck&#39;, 0.22112119),
+  (&#39;n03478589&#39;, &#39;half_track&#39;, 0.10861439),
+  (&#39;n04037443&#39;, &#39;racer&#39;, 0.10831287),
+  (&#39;n04389033&#39;, &#39;tank&#39;, 0.052309193)]]</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p>The image is a racecar and "racer" is included in the prediction. Furthermore the primary prediction is a vehicle of some sort it does a decent job but the chosen image could also affect the prediction, a racecar is more niche prediction compared to a normal car. Also the other predictions are for the most part vehicles that could often be seen in a racesetting.</p>
+</div>
+<section id="part-3" class="cell markdown">
+<h2>Part 3</h2>
+<p>Feature extraction</p>
+</section>
+<div class="cell code" data-execution_count="76">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>feature_extractor <span class="op">=</span> applications.VGG16(include_top<span class="op">=</span><span class="va">False</span>, weights<span class="op">=</span><span class="st">&#39;imagenet&#39;</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                                       input_shape<span class="op">=</span>(img_size, img_size, <span class="dv">3</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>vgg_data_gen <span class="op">=</span> ImageDataGenerator(preprocessing_function<span class="op">=</span>preprocess_input)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_vgg16_features(directory, <span class="bu">file</span>):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        vgg_train_generator <span class="op">=</span> vgg_data_gen.flow_from_directory(</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                directory,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                target_size<span class="op">=</span>(img_size, img_size),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                batch_size<span class="op">=</span>batch_size,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                class_mode<span class="op">=</span><span class="st">&#39;binary&#39;</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                classes<span class="op">=</span>[<span class="st">&#39;other&#39;</span>, <span class="st">&#39;car&#39;</span>],</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                seed<span class="op">=</span><span class="dv">12345</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                shuffle<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        cnn_features<span class="op">=</span> feature_extractor.predict(vgg_train_generator)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span>, <span class="st">&#39;wb&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                np.save(f, cnn_features)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>create_vgg16_features(<span class="st">&#39;./train/&#39;</span>, <span class="st">&#39;./train.txt&#39;</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>create_vgg16_features(<span class="st">&#39;./validation/&#39;</span>, <span class="st">&#39;./validation.txt&#39;</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>Found 1600 images belonging to 2 classes.
+50/50 [==============================] - 47s 909ms/step
+Found 576 images belonging to 2 classes.
+18/18 [==============================] - 15s 806ms/step
+</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p>Training model on extracted features and printing results</p>
+</div>
+<div class="cell code" data-execution_count="77">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_labels(n):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([<span class="dv">0</span>]<span class="op">*</span>(n<span class="op">//</span><span class="dv">2</span>) <span class="op">+</span> [<span class="dv">1</span>]<span class="op">*</span>(n<span class="op">//</span><span class="dv">2</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_on_cnnfeatures(): </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;./train.txt&#39;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    train_data <span class="op">=</span> np.load(f)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;./validation.txt&#39;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> f:</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    validation_data <span class="op">=</span> np.load(f)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(validation_data[<span class="dv">0</span>])</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  model <span class="op">=</span> Sequential()</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  model.add(Flatten())</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  model.add(Dense(<span class="dv">512</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>))</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  model.add(Dense(<span class="dv">1</span>, activation<span class="op">=</span><span class="st">&#39;sigmoid&#39;</span>))</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  model.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">&#39;binary_crossentropy&#39;</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>              optimizer<span class="op">=</span>(SGD(learning_rate<span class="op">=</span><span class="fl">0.01</span>,momentum<span class="op">=</span><span class="fl">0.1</span>, nesterov<span class="op">=</span><span class="va">True</span>)),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>              metrics<span class="op">=</span>[<span class="st">&#39;accuracy&#39;</span>])</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  labels_train <span class="op">=</span> get_labels(<span class="dv">1600</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  labels_val <span class="op">=</span> get_labels(<span class="dv">576</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  model.fit(train_data, labels_train,</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>            epochs<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>            verbose<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>            validation_data<span class="op">=</span>(validation_data, labels_val))</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  score <span class="op">=</span> model.evaluate(validation_data, labels_val, verbose<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;Test loss:&#39;</span>, score[<span class="dv">0</span>])</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;Test accuracy:&#39;</span>, score[<span class="dv">1</span>])</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> model</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>train_on_cnnfeatures()  </span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>[[[15.603769  0.        0.       ...  0.        0.       21.160244]
+  [21.658895  0.        0.       ...  0.        0.        0.      ]]
+
+ [[ 0.        0.        0.       ...  0.        0.       24.641306]
+  [ 0.        0.        0.       ...  0.        9.290994  8.250804]]]
+Epoch 1/10
+50/50 [==============================] - 2s 23ms/step - loss: 3.8612 - accuracy: 0.8487 - val_loss: 0.7296 - val_accuracy: 0.8594
+Epoch 2/10
+50/50 [==============================] - 1s 19ms/step - loss: 0.1743 - accuracy: 0.9663 - val_loss: 0.4633 - val_accuracy: 0.9115
+Epoch 3/10
+50/50 [==============================] - 2s 42ms/step - loss: 0.0260 - accuracy: 0.9950 - val_loss: 0.4672 - val_accuracy: 0.9080
+Epoch 4/10
+50/50 [==============================] - 2s 33ms/step - loss: 0.0048 - accuracy: 0.9994 - val_loss: 0.4469 - val_accuracy: 0.9115
+Epoch 5/10
+50/50 [==============================] - 2s 31ms/step - loss: 0.0026 - accuracy: 1.0000 - val_loss: 0.4656 - val_accuracy: 0.9115
+Epoch 6/10
+50/50 [==============================] - 1s 24ms/step - loss: 0.0018 - accuracy: 1.0000 - val_loss: 0.4730 - val_accuracy: 0.9132
+Epoch 7/10
+50/50 [==============================] - 1s 28ms/step - loss: 0.0015 - accuracy: 1.0000 - val_loss: 0.4787 - val_accuracy: 0.9132
+Epoch 8/10
+50/50 [==============================] - 1s 20ms/step - loss: 0.0013 - accuracy: 1.0000 - val_loss: 0.4842 - val_accuracy: 0.9115
+Epoch 9/10
+50/50 [==============================] - 1s 21ms/step - loss: 0.0011 - accuracy: 1.0000 - val_loss: 0.4884 - val_accuracy: 0.9132
+Epoch 10/10
+50/50 [==============================] - 1s 21ms/step - loss: 9.7389e-04 - accuracy: 1.0000 - val_loss: 0.4923 - val_accuracy: 0.9132
+Test loss: 0.4922758638858795
+Test accuracy: 0.9131944179534912
+</code></pre>
+</div>
+<div class="output execute_result" data-execution_count="77">
+<pre><code>&lt;keras.engine.sequential.Sequential at 0x7f5c581ba910&gt;</code></pre>
+</div>
+</div>
+<div class="cell markdown">
+<p>Using the VGG16 model for extraction we can see a better performing model with less loss and better accuracy. This is achieved with the same settings for the density function, loss function and optimizer.</p>
+</div>
+<section id="part-4-visualizing-the-learned-features" class="cell markdown">
+<h2>Part 4: Visualizing the learned features</h2>
+</section>
+<div class="cell code" data-execution_count="85">
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>first_layer_weights <span class="op">=</span> vggmodel.get_weights()[<span class="dv">0</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(first_layer_weights.shape)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># weights = first_layer_weights</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># i = convolutional filter/kernel at position i (0-63)</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># positive = positive or negative part of filter</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kernel_image(weights, i, positive):</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># extract the convolutional kernel at position i</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> weights[:,:,:,i].copy()</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> positive:</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="op">-</span>k</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># clip the values: if we&#39;re looking for positive</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># values, just keep the positive part; vice versa</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># for the negative values.</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    k <span class="op">*=</span> k <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rescale the colors, to make the images less dark</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> k.<span class="bu">max</span>()</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">&gt;</span> <span class="fl">1e-3</span>:</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        k <span class="op">/=</span> m </span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> k</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize patterns in the first convolutional layer, positive and negative</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>):</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>].imshow(kernel_image(first_layer_weights, i, positive<span class="op">=</span><span class="va">True</span>),label<span class="op">=</span><span class="ss">f&quot;filter </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">(positive)&quot;</span>)</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].imshow(kernel_image(first_layer_weights, i, positive<span class="op">=</span><span class="va">False</span>),label<span class="op">=</span><span class="ss">f&quot;filter </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> (negative)&quot;</span>)</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    fig.tight_layout()</span></code></pre></div>
+<div class="output stream stdout">
+<pre><code>(3, 3, 3, 64)
+</code></pre>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+<div class="output display_data">
+<p><img src="3c58bbde92f31f7c0bf3467141f61485d9a4c8a6.png" /></p>
+</div>
+</div>
+</body>
+</html>
